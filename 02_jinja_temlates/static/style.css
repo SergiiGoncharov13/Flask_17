@@ -1,0 +1,13 @@
+body {
+    background-color: azure;
+}
+
+h1 {
+    color: red;
+    text-align: center;
+}
+
+p {
+    font-family: verdana;
+    font-size: 20px;
+}
