@@ -15,7 +15,7 @@ students = [
 
 @app.route('/')
 def index():
-    return render_template('base.html', title='jinja_test_Flask')
+    return render_template('base.html', title='It is worked')
 
 
 @app.route('/result')

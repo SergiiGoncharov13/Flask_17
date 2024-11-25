@@ -7,9 +7,12 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
+    <header>
+        {% include "_navigation.html" %}
+    </header>
     <h1>{{test_name}} {{title}}</h1>
     <ul>
-        {% for student in students %}
+        {% for student in students | sort(attribute="name") %}
         <li>
             {% if student.score > 80 %} 'good' {% else %} 'bad' {% endif %}
             <em> {{ student.name }} : </em> {{ student.score}} / {{ max_score }}
