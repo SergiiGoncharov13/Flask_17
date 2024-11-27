@@ -1,3 +1,4 @@
+{% import "macros.html" as macros %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,5 +14,12 @@
 {% block content %}
     <h1>Welcome. {{title}}</h1>
 {% endblock content %}
+
+
+
+<footer>
+    {{ macros.light_or_dark_mode() }}
+</footer>
+
 </body>
 </html>

@@ -1,16 +1,38 @@
-{% macro ligt_or_dark_mode(element) %}
-{% if request.args.get("mode") == "dark" %}
-<a href="{{ request.path }}"> Swith to light mode </a>
-<style>
-    div a {
-        background-color: #212F3C;
-        color: #FFFFF0;
-    }
-    div a {
-        color: #00BFFF !important;
-    }
-</style>
+{% macro light_or_dark_mode() %}
+    {% if request.args.get("mode") == "dark" %}
+    <a href="{{ request.path }}">Switch to light mode</a>
+    <style>
+        body {
+            background-color: #212F3C;
+            color: #FFFFF0;
+        }
+        a {
+            color: #00BFFF;
+        }
+    </style>
+    {% else %}
+    <a href="{{ request.path }}?mode=dark">Switch to dark mode</a>
+    <style>
+        body {
+            background-color: #FFFFF0;
+            color: #212F3C;
+        }
+        a {
+            color: #FF4500;
+        }
+    </style>
+    {% endif %}
+{% endmacro %}
+
+
+
+{% macro add_bagle(student, students) %}
+{% set hight_score = students|map(attribute="score")|max %}
+{% if student.score == hight_score %}
+    ⭐️
+{% elif student.score > 80  %}
+    🙂
 {% else %}
-<a href="{{request.path}}?mode=dark">Swith to dark mode</a>
+    🙁
 {% endif %}
 {% endmacro %}

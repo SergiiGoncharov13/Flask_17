@@ -1,23 +1,23 @@
+{% extends "base.html" %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Results</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+   
 </head>
 <body>
-    <header>
-        {% include "_navigation.html" %}
-    </header>
+    {% block content %}
     <h1>{{test_name}} {{title}}</h1>
     <ul>
-        {% for student in students | sort(attribute="name") %}
+        {% for student in students | sort(attribute="score") %}
         <li>
-            {% if student.score > 80 %} 'good' {% else %} 'bad' {% endif %}
+            {{ macros.add_bagle(student, students) }}
             <em> {{ student.name }} : </em> {{ student.score}} / {{ max_score }}
         </li>
         {% endfor %}
     </ul>
+    {% endblock content %}
 </body>
 </html>
