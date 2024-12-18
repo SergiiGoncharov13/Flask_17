@@ -1,0 +1,28 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<h1 class="text-center">Weather App</h1>
+<form method="POST" class="text-center mb-4">
+    <input type="text" name="city" placeholder="Enter city name" class="form-control w-50 d-inline" required>
+    <button type="submit" class="btn btn-primary">Get Weather</button>
+</form>
+
+{% if error %}
+<div class="alert alert-danger text-center">{{ error }}</div>
+{% endif %}
+
+{% if weather_data %}
+<div class="card mx-auto" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title">{{ weather_data.name }}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{ weather_data.sys.country }}</h6>
+        <p class="card-text">
+            Temperature: {{ weather_data.main.temp }}°C<br>
+            Weather: {{ weather_data.weather[0].description }}<br>
+            Humidity: {{ weather_data.main.humidity }}%<br>
+            Wind Speed: {{ weather_data.wind.speed }} m/s
+        </p>
+    </div>
+</div>
+{% endif %}
+{% endblock %}
