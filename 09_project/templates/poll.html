@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>{{data.question}}</title>
+</head>
+<body>
+    <h1>{{data.question}}</h1>
+    <form
+        action='/poll'>
+        {% for i in data.fields %}
+        <input type="radio" name="field" value="Your reply has been accepted:  {{i}}" class="inp"> 
+        {{i}} <br> 
+        {% endfor %}
+        <input type="submit" value="vote" class="button"/>
+    </form>
+   
+</body>
+</html>
