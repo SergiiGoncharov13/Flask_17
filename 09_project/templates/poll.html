@@ -1,3 +1,4 @@
+{% import "macros.html" as macros %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,6 +17,11 @@
         {% endfor %}
         <input type="submit" value="vote" class="button"/>
     </form>
-   
+
+    <h3>PrivatBank Excheinge rates</h3>
+    <pre> {{ currency | tojson(indent=3)}}</pre>
+    <footer>
+    {{ macros.light_or_dark_mode() }}
+    </footer>  
 </body>
 </html>

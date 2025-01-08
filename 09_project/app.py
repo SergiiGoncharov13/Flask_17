@@ -1,5 +1,7 @@
 from flask import Flask, render_template, request
 import os
+import requests
+
 
 app = Flask(__name__)
 
@@ -13,7 +15,10 @@ poll_data = {
 
 @app.route('/')
 def root():
-    return render_template('poll.html', data=poll_data)
+    url = 'https://api.privatbank.ua/p24api/pubinfo?exchange&coursid=5'
+    response = requests.get(url)
+    currency = response.json()
+    return render_template('poll.html', data=poll_data, currency=currency)
 
 
 @app.route('/poll')
