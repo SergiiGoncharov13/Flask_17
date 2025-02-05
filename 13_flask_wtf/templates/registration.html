@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <title>Registration</title>
+</head>
+<body>
+    <h3>Registration</h3>
+    <form action="/registration" method="POST">
+        <div action="form-group">
+        {{form.email.label}}
+        {{form.email(class="form-control", placeholder="enter email")}}
+        </div>
+        <p>
+        <div class="form-group">
+        {{form.password.label}}
+        {{form.password(class="form-control", placeholder="enter password")}}
+        </div>
+        <p>
+        <div class="form-check">
+            {{form.remember(class="form-check-input")}}
+            {{form.remember.label}}
+        </div>
+        <p>
+        {{form.submit(class="btn-primary")}}
+    </form>
+</body>
+</html>

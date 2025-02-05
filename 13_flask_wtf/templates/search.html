@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search</title>
+</head>
+<body>
+    <form action="/dosearch">
+        <input type="search" name="s" placeholder="web search">
+        <input type="submit" value="Find">
+    </form>
+
+    <h2> GET form</h2>
+    <form action="/getsearch" method="GET">
+        <input type="email" name="mail" placeholder="Email">
+        <input type="submit" value="subscribe">
+    </form>
+
+    <h2> POST form</h2>
+    <form action="/postseach" method="POST">
+        <input type="email" name="mail" placeholder="Email">
+        <input type="submit" value="subscribe">
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <title>Luggage</title>
+</head>
+<body>
+    <h3>Luggage</h3>
+    <form action="/luggage" method="POST">
+        <div action="form-group">
+        {{form.name.label}}
+        {{form.name(class="form-control", placeholder="enter name")}}
+        </div>
+        <p>
+        <div class="form-group">
+        {{form.surname.label}}
+        {{form.surname(class="form-control", placeholder="enter surname")}}
+        </div>
+        <p>
+        <div class="form-group">
+            {{form.pass_id.label}} <br>
+            {{form.pass_id(class="form-control")}}
+        </div>
+        <p>
+            <div class="form-group">
+                {{form.luggage_weight.label}}
+                {{form.luggage_weight(class="form-control")}}
+            </div>
+        <p>
+        {{form.submit(class="btn-primary")}}
+    </form>
+</body>
+</html>
