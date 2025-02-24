@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <h1>All snikers in shop</h1>
+    {% for product in products %}
+    <div>
+        <img src="/static/images/{{product.image_filename}}">
+        <h3>{{product.name}}</h3>
+        <h5>{{product.description}}</h5>
+        <p>{{product.price}}₴</p>
+        <button type="button">
+            <a href="/order/{{product.id}}">Buy</a>
+        </button>
+
+    </div>
+    {% endfor %}
+</body>
+</html>
