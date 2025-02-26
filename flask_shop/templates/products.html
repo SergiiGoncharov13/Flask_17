@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <title>Document</title>
 </head>
 <body>
@@ -13,7 +14,7 @@
         <h5>{{product.description}}</h5>
         <p>{{product.price}}₴</p>
         <button type="button">
-            <a href="/order/{{product.id}}">Buy</a>
+        <a href="/order/{{product.id}}" class="btn btn-success">Buy</a>
         </button>
 
     </div>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">    
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Order</title>
+</head>
+<body>
+    <img src="/static/images/{{product.image_filename}}">
+    <h3>{{product.name}}</h3>
+    <h5>{{product.description}}</h5>
+    <p>{{product.price}}₴</p>
+
+    <h4>Create order</h4>
+    <form method="post">
+        <p>your telephone number:</p>
+        <input type="text" name="phone">
+        <p>your email:</p>
+        <input type="text"  name="email">
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
