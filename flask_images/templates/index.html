@@ -5,6 +5,9 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <title>Title</title>
 </head>
+<header>
+    {% include "_navigation.html" %}
+</header>
 <body>
 <form method="post" enctype="multipart/form-data">
     <input type="file" name="user_file">

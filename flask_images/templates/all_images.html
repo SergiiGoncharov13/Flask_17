@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>All images</title>
+</head>
+<header>
+    {% include "_navigation.html" %}
+</header>
+<body>
+    {% for i in data %}
+    <p>{{i.filename}}</p>
+    <p>{{i.file_description}}</p>
+    <img src="static/users_files/{{i.filename}}">
+    {% endfor %}
+</body>
+</html>
