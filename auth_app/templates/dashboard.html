@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Dashbord</title>
+</head>
+<body>
+    <h1>Welcome, {{user.username}}!</h1>
+    <p>your role: <strong> {{user.role}}<strong></p>
+        {% if user.role == "admin" %}
+        <p>You have access to admin dashbord</p>
+        {% else %}
+        <p>You have access to user dashbord</p>
+        {% endif %}
+    
+    <a href="{{ url_for('logout') }}">Logout</a>
+
+    {% with messages = get_flashed_messages() %} 
+    {% if message %}
+    <ul>
+        {% for msg in messages %}
+        <li style="color: green;">{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+</body>
+</html>

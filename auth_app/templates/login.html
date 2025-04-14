@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>{% if register %}Register{%else %}Login{% endif %}</title>
+</head>
+<body>
+    <h1>{% if register %}Register{%else %}Login{% endif %}</h1>
+
+    <form method="POST">
+        <label>Username</label>
+        <input type="text" name="username" required><br><br>
+        
+        <label>Password</label>
+        <input type="password" name="password" required><br><br>
+
+        {% if register %}
+        <label>Role</label>
+        <select name="role">
+            <option value="user">User</option>
+            <option value="admin">Admin</option>
+        </select><br><br>
+        {% endif %}
+
+        <input type="submit" value="{% if register %}Register{%else %}Login{% endif %}">
+    </form>
+
+    {% if not register %}
+    <p>Don't have an account?<a href="{{url_for('register')}}">Register here</a></p>
+    {% else %}
+    <p>Already have an account?<a href="{{url_for('login')}}">Login</a></p>
+    {% endif %}
+
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li style="color: green;">{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+</body>
+</html>
